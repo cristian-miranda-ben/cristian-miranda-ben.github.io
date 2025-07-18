@@ -1,1 +1,233 @@
-<div> <h1> hola</h1></div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi Portafolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      padding: 20px;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    /* Header */
+    .perfil {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 40px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .perfil img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 100%;
+      margin-right: 20px;
+    }
+
+    .perfil .descripcion {
+      flex: 1;
+    }
+
+    .perfil .descripcion h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    /* Proyectos */
+    h2 {
+      margin: 30px 0 10px;
+      font-size: 1.8em;
+    }
+
+    .proyectos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .proyecto {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .slider {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .slider img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    .slider img.active {
+      display: block;
+    }
+
+    .slider button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    .slider .prev {
+      left: 10px;
+    }
+
+    .slider .next {
+      right: 10px;
+    }
+
+    .descripcion-proyecto {
+      font-size: 0.95em;
+    }
+
+    @media (max-width: 600px) {
+      .perfil {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .perfil img {
+        margin: 0 auto 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="perfil">
+    <img src="tu-imagen.jpg" alt="Mi foto">
+    <div class="descripcion">
+      <h1>Tu Nombre</h1>
+      <p>Desarrollador apasionado por crear soluciones eficientes, atractivas y funcionales. Experiencia en desarrollo web, apps y más.</p>
+    </div>
+  </div>
+
+  <h2>Proyectos</h2>
+  <div class="proyectos">
+
+    <!-- Proyecto 1 -->
+    <div class="proyecto">
+      <div class="slider" data-index="0">
+        <img src="img1a.jpg" class="active" alt="">
+        <img src="img1b.jpg" alt="">
+        <img src="img1c.jpg" alt="">
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+      </div>
+      <div class="descripcion-proyecto">
+        <strong>Proyecto 1:</strong> Aplicación de gestión de tareas con autenticación y base de datos en la nube.
+      </div>
+    </div>
+
+    <!-- Proyecto 2 -->
+    <div class="proyecto">
+      <div class="slider" data-index="0">
+        <img src="img2a.jpg" class="active" alt="">
+        <img src="img2b.jpg" alt="">
+        <img src="img2c.jpg" alt="">
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+      </div>
+      <div class="descripcion-proyecto">
+        <strong>Proyecto 2:</strong> Sitio web de portafolio personal con diseño responsive y animaciones suaves.
+      </div>
+    </div>
+
+    <!-- Proyecto 3 -->
+    <div class="proyecto">
+      <div class="slider" data-index="0">
+        <img src="img3a.jpg" class="active" alt="">
+        <img src="img3b.jpg" alt="">
+        <img src="img3c.jpg" alt="">
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+      </div>
+      <div class="descripcion-proyecto">
+        <strong>Proyecto 3:</strong> Dashboard interactivo con gráficos usando Chart.js y consumo de API REST.
+      </div>
+    </div>
+
+    <!-- Proyecto 4 -->
+    <div class="proyecto">
+      <div class="slider" data-index="0">
+        <img src="img4a.jpg" class="active" alt="">
+        <img src="img4b.jpg" alt="">
+        <img src="img4c.jpg" alt="">
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+      </div>
+      <div class="descripcion-proyecto">
+        <strong>Proyecto 4:</strong> Blog estático generado con Jekyll y hospedado en GitHub Pages.
+      </div>
+    </div>
+
+    <!-- Proyecto 5 -->
+    <div class="proyecto">
+      <div class="slider" data-index="0">
+        <img src="img5a.jpg" class="active" alt="">
+        <img src="img5b.jpg" alt="">
+        <img src="img5c.jpg" alt="">
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+      </div>
+      <div class="descripcion-proyecto">
+        <strong>Proyecto 5:</strong> Mini juego de memoria en JavaScript puro con puntajes y niveles.
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    document.querySelectorAll('.slider').forEach(slider => {
+      const images = slider.querySelectorAll('img');
+      const prev = slider.querySelector('.prev');
+      const next = slider.querySelector('.next');
+      let currentIndex = 0;
+
+      function showImage(index) {
+        images.forEach(img => img.classList.remove('active'));
+        images[index].classList.add('active');
+      }
+
+      prev.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage(currentIndex);
+      });
+
+      next.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+      });
+    });
+  </script>
+</body>
+</html>
+
